@@ -16,6 +16,7 @@ class smolPaint:
         self.custom_font = font.Font(family="IBM 3270", size=10)
         self.window.option_add("*Font", self.custom_font)
         self.window.configure(bg="#222222")
+        self.window.iconphoto(False, tk.PhotoImage(file='icon.png'))
 
         # Create frames with padding
         self.pixel_frame = tk.Frame(self.window, padx=10, pady=10)
