@@ -1,10 +1,10 @@
-# smolPaint GUI
-# Tiny paint program for 5x5 NeoPixel BFF Grid displays
+# smolPainter
 # by Krzysztof Krystian Jankowski
 # (c) 2023/07
 
 import machine
 import neopixel
+import utime
 
 class smolPaint():
     def __init__(self):
@@ -34,5 +34,31 @@ class smolPaint():
             else:
                 print("Wrong data. 25*3 (r,g,b,) expected, got:",len(data.split(',')),data)
 
+    def animator(self):
+        print("Animator mode.\nPaste frames. Hit enter (empty) to preview animation.")
+        frames=[]
+        current_frame=0
+        while True:
+            data = input("25xR,G,B > ")
+            if data=="":
+                for frame in frames:
+                    self.update_pixels(frame)
+                    utime.sleep(1)
+            else:
+                if len(data.split(','))==25*3:
+                    frames.append(data)
+                    for frame in frames:
+                        self.update_pixels(frame)
+                        utime.sleep(1)
+                else:
+                    print("Wrong data. 25*3 (r,g,b,) expected, got:",len(data.split(',')),data)
+
+    def gallery(self):
+        bitmaps = {}
+        # apple
+        bitmaps.append([0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,27,16,1,27,16,1,20,0,0,0,0,0,11,24,1,0,16,1,33,0,0,33,0,0,11,24,1,0,0,0,33,0,0,33,0,0,20,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0])
+        # cherry
+        bitmaps.append([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22,0,25,25,0,16,0,0,0,0,0,0,9,19,1,0,12,1,25,0,11,25,0,16,9,19,1,0,0,0,20,0,16,25,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+
 sp = smolPaint()
-sp.transfer()
+sp.animator()
