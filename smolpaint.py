@@ -15,7 +15,7 @@ class smolPaint:
         self.window.resizable(False, False)
         self.custom_font = font.Font(family="IBM 3270", size=10)
         self.window.option_add("*Font", self.custom_font)
-        self.window.configure(bg="#0A0A0A")
+        self.window.configure(bg="#222222")
 
         # Create frames with padding
         self.pixel_frame = tk.Frame(self.window, padx=10, pady=10)
