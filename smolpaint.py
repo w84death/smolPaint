@@ -156,7 +156,7 @@ class smolPaint:
         self.buttons[i][j].config(bg=color)
 
         # Update the pixel color in the pixel stream
-        self.pixel_stream[i*5+j] = f"{R},{G},{B}"
+        self.pixel_stream[j*5+i] = f"{R},{G},{B}"
         self.update_pixel_stream()
 
     def run(self):
