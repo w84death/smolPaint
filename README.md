@@ -7,3 +7,7 @@ Tiny paint program for 5x5 NeoPixel BFF Grid displays
 ## Homepage
 
 [https://smol.p1x.in/paint/](https://smol.p1x.in/paint/)
+
+
+## Download
+- Linux 64-bit dist/smolpaint
