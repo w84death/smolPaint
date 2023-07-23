@@ -10,11 +10,12 @@ class smolPaint:
     def __init__(self):
         # Create a window
         self.window = tk.Tk()
-        self.window.title("smolPaint by Krzysztof Krystian Jankowski")
+        self.window.title("smolPaint")
         self.window.geometry('320x260') # Set the window size to 800x600
         self.window.resizable(False, False)
         self.custom_font = font.Font(family="IBM 3270", size=10)
         self.window.option_add("*Font", self.custom_font)
+        self.window.configure(bg="#0A0A0A")
 
         # Create frames with padding
         self.pixel_frame = tk.Frame(self.window, padx=10, pady=10)
