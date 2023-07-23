@@ -5,9 +5,17 @@
 
 import tkinter as tk
 from tkinter import ttk, Scale, font
+import sys
+import os
 
 class smolPaint:
     def __init__(self):
+        if getattr(sys, 'frozen', False):
+            application_path = sys._MEIPASS
+        else:
+            application_path = os.path.dirname(os.path.abspath(__file__))
+        icon_path = os.path.join(application_path, 'icon.png')
+
         # Create a window
         self.window = tk.Tk()
         self.window.title("smolPaint")
@@ -16,7 +24,7 @@ class smolPaint:
         self.custom_font = font.Font(family="IBM 3270", size=10)
         self.window.option_add("*Font", self.custom_font)
         self.window.configure(bg="#222222")
-        self.window.iconphoto(False, tk.PhotoImage(file='icon.png'))
+        self.window.iconphoto(True, tk.PhotoImage(file=icon_path))
 
         # Create frames with padding
         self.pixel_frame = tk.Frame(self.window, padx=10, pady=10)
