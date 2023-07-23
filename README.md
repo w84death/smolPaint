@@ -1,14 +1,8 @@
 # smolPaint
 Tiny paint program for 5x5 NeoPixel BFF Grid displays
 
-![smolPaint Screenshot](smolpaint-1.png)
-![smolPaint Screenshot](smolpaint-2.png)
-![smolPaint Screenshot](smolpaint-3.png)
-
-## 5x5 Pixel Art
-
-![smolPaint Smile](smolpaint-smile.png)
-![smolPaint NeoPixel](smile.jpg)
+![smolPaint Screenshot](smolpaint.png)
+![smolPaint NeoPixel](smolpaint-neopixel.jpg)
 
 ## Homepage
 

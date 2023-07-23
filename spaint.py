@@ -11,7 +11,7 @@ class smolPaint():
         self.pixels = neopixel.NeoPixel(machine.Pin(29),5*5)
         self.pixels.fill((0,0,0))
         self.pixels.write()
-        self.logo = "0,0,0,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,45,41,255,0,0,0,45,41,255,0,0,0,0,0,0,45,41,255,0,0,0,45,41,255,0,0,0,0,0,0,0,0,0,45,41,255,45,41,255,0,0,0,0,0,0"
+        self.logo = "0,0,0,25,25,25,25,25,25,25,25,25,25,25,25,0,0,0,25,25,25,0,0,0,25,25,25,0,0,0,0,0,0,25,25,25,25,25,25,25,25,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,25,0,25,0,0"
         print("smolPaint started. Use transfer() to push new image.")
         self.update_pixels(self.logo)
 
@@ -44,12 +44,14 @@ class smolPaint():
                 for frame in frames:
                     self.update_pixels(frame)
                     utime.sleep(1)
+            if data=="clear":
+                frames=[]
             else:
                 if len(data.split(','))==25*3:
                     frames.append(data)
                     for frame in frames:
                         self.update_pixels(frame)
-                        utime.sleep(1)
+                        utime.sleep(0.1)
                 else:
                     print("Wrong data. 25*3 (r,g,b,) expected, got:",len(data.split(',')),data)
 
@@ -62,3 +64,4 @@ class smolPaint():
 
 sp = smolPaint()
 sp.animator()
+
